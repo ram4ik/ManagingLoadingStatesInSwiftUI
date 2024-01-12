@@ -35,6 +35,40 @@ enum LoadingState<T: Codable & Equatable>: Equatable {
     }
 }
 
+struct LoadingWrapperView<T: Codable & Equatable, Content: View, LoadingContent: View, SuccessContent: View, FailureContent: View>: View {
+    
+    let loadingState: LoadingState<T>
+    let content: () -> Content
+    let loadingContent: () -> LoadingContent
+    let successContent: (T) -> SuccessContent
+    let failureContent: (Error) -> FailureContent
+    
+    init(loadingState: LoadingState<T>, @ViewBuilder content: @escaping () -> Content, @ViewBuilder loadingContent: @escaping () -> LoadingContent, @ViewBuilder successContent: @escaping (T) -> SuccessContent, @ViewBuilder failureContent: @escaping (Error) -> FailureContent) {
+        self.loadingState = loadingState
+        self.content = content
+        self.loadingContent = loadingContent
+        self.successContent = successContent
+        self.failureContent = failureContent
+    }
+    
+    var body: some View {
+        VStack {
+            content()
+            
+            switch loadingState {
+            case .none:
+                EmptyView()
+            case .loading:
+                loadingContent()
+            case .success(let value):
+                successContent(value)
+            case .error(let error):
+                failureContent(error)
+            }
+        }
+    }
+}
+
 struct ContentView: View {
     
     @State private var loadingState: LoadingState<Movie> = .none
@@ -47,6 +81,7 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
+            /*
             Button("Perform Time Consuming Operation") {
                 loadingState = .loading
             }.buttonStyle(.borderedProminent)
@@ -62,6 +97,21 @@ struct ContentView: View {
                 Text(error.localizedDescription)
                     .foregroundStyle(.red)
             }
+             */
+            
+            LoadingWrapperView(loadingState: loadingState) {
+                Button("Perform Loading Operation") {
+                    loadingState = .loading
+                }.buttonStyle(.borderedProminent)
+            } loadingContent: {
+                ProgressView("Loading...")
+            } successContent: { movie in
+                Text(movie.title)
+            } failureContent: { error in
+                Text(error.localizedDescription)
+                    .foregroundStyle(.red)
+            }
+
         }
         .task(id: loadingState) {
             if loadingState == .loading {
