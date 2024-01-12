@@ -11,6 +11,10 @@
 		52968D5B2B51263600C150A5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52968D5A2B51263600C150A5 /* ContentView.swift */; };
 		52968D5D2B51263700C150A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52968D5C2B51263700C150A5 /* Assets.xcassets */; };
 		52968D602B51263700C150A5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52968D5F2B51263700C150A5 /* Preview Assets.xcassets */; };
+		52968D672B5134C500C150A5 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52968D662B5134C500C150A5 /* NetworkError.swift */; };
+		52968D692B5134DB00C150A5 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52968D682B5134DB00C150A5 /* Movie.swift */; };
+		52968D6B2B5134F700C150A5 /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52968D6A2B5134F700C150A5 /* LoadingState.swift */; };
+		52968D6D2B51352400C150A5 /* LoadingWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52968D6C2B51352400C150A5 /* LoadingWrapperView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,10 @@
 		52968D5A2B51263600C150A5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		52968D5C2B51263700C150A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52968D5F2B51263700C150A5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		52968D662B5134C500C150A5 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		52968D682B5134DB00C150A5 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		52968D6A2B5134F700C150A5 /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
+		52968D6C2B51352400C150A5 /* LoadingWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingWrapperView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +59,10 @@
 		52968D572B51263600C150A5 /* ManagingLoadingStatesInSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				52968D712B5135C400C150A5 /* ViewModels */,
+				52968D702B51359F00C150A5 /* Errors */,
+				52968D6F2B51356C00C150A5 /* Models */,
+				52968D6E2B51355600C150A5 /* wrapper */,
 				52968D582B51263600C150A5 /* ManagingLoadingStatesInSwiftUIApp.swift */,
 				52968D5A2B51263600C150A5 /* ContentView.swift */,
 				52968D5C2B51263700C150A5 /* Assets.xcassets */,
@@ -65,6 +77,38 @@
 				52968D5F2B51263700C150A5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		52968D6E2B51355600C150A5 /* wrapper */ = {
+			isa = PBXGroup;
+			children = (
+				52968D6C2B51352400C150A5 /* LoadingWrapperView.swift */,
+			);
+			path = wrapper;
+			sourceTree = "<group>";
+		};
+		52968D6F2B51356C00C150A5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				52968D682B5134DB00C150A5 /* Movie.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		52968D702B51359F00C150A5 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				52968D662B5134C500C150A5 /* NetworkError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		52968D712B5135C400C150A5 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				52968D6A2B5134F700C150A5 /* LoadingState.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +181,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52968D672B5134C500C150A5 /* NetworkError.swift in Sources */,
+				52968D6D2B51352400C150A5 /* LoadingWrapperView.swift in Sources */,
 				52968D5B2B51263600C150A5 /* ContentView.swift in Sources */,
+				52968D6B2B5134F700C150A5 /* LoadingState.swift in Sources */,
+				52968D692B5134DB00C150A5 /* Movie.swift in Sources */,
 				52968D592B51263600C150A5 /* ManagingLoadingStatesInSwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
